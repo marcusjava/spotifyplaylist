@@ -9,7 +9,7 @@ class Aggregate extends Component {
             <label className="text-white">Total List</label>
           </div>
           <div className="col-md-4">
-            <label className="text-white">Duration Time</label>
+            <label className="text-white">Duration</label>
           </div>
         </div>
       </div>
