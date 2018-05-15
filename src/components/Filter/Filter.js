@@ -11,6 +11,7 @@ class Filter extends Component {
                 type="text"
                 className="form-control"
                 placeholder="Search"
+                onKeyUp={event => this.props.onTextChange(event.target.value)}
               />
               <button className="btn btn-primary">
                 <i className="fa fa-search" />
