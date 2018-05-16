@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import Header from "./components/Header/Header";
 import Filter from "./components/Filter/Filter";
 import Playlist from "./components/Playlist/Playlist";
-import queryString from "querystring";
+import queryString from "query-string";
 
 import "./App.css";
 
@@ -37,6 +37,7 @@ class App extends Component {
     // pegando os dados da urlgit
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
+    console.log(accessToken);
     if (!accessToken) {
       return;
     }
