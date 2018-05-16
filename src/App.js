@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import Header from "./components/Header/Header";
 import Filter from "./components/Filter/Filter";
 import Playlist from "./components/Playlist/Playlist";
-import queryString from "query-string";
+import queryString from "querystring";
 
 import "./App.css";
 
