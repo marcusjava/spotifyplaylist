@@ -34,9 +34,8 @@ class App extends Component {
 
   componentDidMount() {
     // pegando os dados da urlgit
-    let parsed = qs.parse(window.location.search);
+    let parsed = qs.parse(window.location.search.replace("?", ""));
     let accessToken = parsed.access_token;
-    console.log(accessToken);
     if (!accessToken) {
       return;
     }
