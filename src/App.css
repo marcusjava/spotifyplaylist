@@ -1,16 +1,14 @@
-body {
-}
-
-.App {
-  position: absolute;
-  background: url("./assets/img/playlist2.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 800px;
+img {
   width: 100%;
-  height: 100%;
+}
+.App {
+  position: relative;
+  background: url("./assets/img/playlist2.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
 }
 .App .primary-overlay {
   background: rgba(50, 146, 166, 0.5);
@@ -27,18 +25,18 @@ body {
   border-bottom: 1px #ddd solid;
 }
 
-#authors img {
+#playlist img {
   margin-top: -50px;
 }
 
-#authors .fa {
+#playlist .fa {
   font-size: 25px;
 }
 
-#authors .card:hover {
+#playlist .card:hover {
   background: #3292a6;
   color: #fff;
 }
-#authors .card:hover .fa {
+#playlist .card:hover .fa {
   color: #fff;
 }

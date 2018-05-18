@@ -28,14 +28,15 @@ class App extends Component {
     super();
     this.state = {
       serverData: {},
-      filterString: ""
+      filterString: "",
+      playlists: ""
     };
   }
 
   componentDidMount() {
     // pegando os dados da urlgit
     let parsed = qs.parse(window.location.search.replace("?", ""));
-    console.log(parsed)
+    console.log(window.location.search);
     let accessToken = parsed.access_token;
     if (!accessToken) {
       return;
@@ -52,6 +53,7 @@ class App extends Component {
       .then(response => response.json())
       .then(playlistData => {
         let playlists = playlistData.items;
+
         let trackDataPromises = playlists.map(playlist => {
           let responsePromise = fetch(playlist.tracks.href, {
             headers: { Authorization: "Bearer " + accessToken }
@@ -63,19 +65,21 @@ class App extends Component {
         });
         let allTrackDataPromises = Promise.all(trackDataPromises);
         let playlistsPromise = allTrackDataPromises.then(trackDatas => {
+          console.log(trackDatas);
           trackDatas.forEach((trackData, i) => {
             playlists[i].trackDatas = trackData.items
               .map(item => item.track)
               .map(trackData => ({
                 name: trackData.name,
-                duration: trackData.duration_ms / 1000
+                duration: trackData.duration_ms / 1000,
+                preview_url: trackData.preview_url
               }));
           });
           return playlists;
         });
         return playlistsPromise;
       })
-      .then(playlists =>
+      .then(playlists => {
         this.setState({
           playlists: playlists.map(item => {
             return {
@@ -84,8 +88,8 @@ class App extends Component {
               songs: item.trackDatas.slice(0, 3)
             };
           })
-        })
-      );
+        });
+      });
   }
   render() {
     let playlistToRender =
