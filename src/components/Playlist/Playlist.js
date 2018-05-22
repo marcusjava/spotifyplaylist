@@ -55,6 +55,7 @@ class Playlist extends Component {
                 song={song}
                 key={index}
                 playingUrl={this.state.playingUrl}
+                playing={this.state.playing}
                 onClick={event => this.playMusic(song.preview_url, event)}
               />
             ))}

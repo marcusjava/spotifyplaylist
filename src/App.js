@@ -127,7 +127,7 @@ class App extends Component {
             </div>
           </div>
         ) : (
-          <div className="mx-auto">
+          <div className="mt-4">
             <button
               className="btn btn-primary text-white"
               onClick={() => {
